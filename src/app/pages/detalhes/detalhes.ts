@@ -2,7 +2,7 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Computadores } from '../../models/computador-model-response';
+import { Computadores } from '../../../models/computador-model-response';
 import { DetalhesService } from './detalhes.service';
 
 @Component({
@@ -22,9 +22,9 @@ export class Detalhes implements OnInit {
   erro = signal<string | null>(null);
   editar = signal(false);
 
-  statusMap = {
-    0: { label: 'Offline', color: 'bg-red-500', textColor: 'text-red-700', bgColor: 'bg-red-50' },
-    1: { label: 'Online', color: 'bg-green-500', textColor: 'text-green-700', bgColor: 'bg-green-50' },
+  statusMap: Record<number, { label: string; color: string; textColor: string; bgColor: string }> = {
+    1: { label: 'Offline', color: 'bg-red-500', textColor: 'text-red-700', bgColor: 'bg-red-50' },
+    0: { label: 'Online', color: 'bg-green-500', textColor: 'text-green-700', bgColor: 'bg-green-50' },
     2: { label: 'Em Manutenção', color: 'bg-yellow-500', textColor: 'text-yellow-700', bgColor: 'bg-yellow-50' }
   };
 
@@ -50,6 +50,7 @@ export class Detalhes implements OnInit {
         if (response.sucesso) {
           this.computador = response.dados;
           this.computadorForm.patchValue(this.computador);
+
         } else {
           this.erro.set('Computador não encontrado');
         }

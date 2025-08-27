@@ -48,14 +48,14 @@
               </div>
             </div>
             <!-- Badge de Status -->
-            <!-- <div [class]="computador()?.status || 0.bgColor + ' px-6 py-2 rounded-full shadow-lg transform -translate-y-4'">
-                <div class="flex items-center space-x-2">
-                  <div [class]="getStatusInfo(computador()?.status || 0).color + ' h-3 w-3 rounded-full animate-pulse'"></div>
-                  <span [class]="getStatusInfo(computador()?.status || 0).textColor + ' font-medium'">
-                    {{getStatusInfo(computador()?.status || 0).label}}
-                  </span>
-                </div>
-              </div> -->
+            <div [class]="statusMap[computador.status].bgColor + ' px-6 py-2 rounded-full shadow-lg transform -translate-y-4'">
+              <div class="flex items-center space-x-2">
+                <div [class]="statusMap[computador.status].color + ' h-3 w-3 rounded-full animate-pulse'"></div>
+                <span [class]="statusMap[computador.status].textColor + ' font-medium'">
+                  {{statusMap[computador.status].label}}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
       <!-- Conteúdo -->
       <div class="p-8">
         <!-- Seção de Informações -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 gap-8">
           <!-- Coluna de Detalhes -->
           <div class="space-y-6">
             <!-- ID do Computador -->
@@ -183,12 +183,10 @@
           <!-- Botões de Ação Principal -->
           <div class="mt-8 flex space-x-4">
             <a [routerLink]="['/dashboard']"
-              class="flex-1 px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-colors duration-200">
+              class="flex-1 px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-colors duration-200 text-center">
               Voltar
             </a>
-            <button
-              [disabled]="!isFormValid || !editar()"
-              (click)="onSubmit()"
+            <button [disabled]="!isFormValid || !editar()" (click)="onSubmit()"
               class="flex-1 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
               Atualizar Dados
             </button>

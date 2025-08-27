@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ComputadorGetResponse, Computadores } from "../../models/computador-model-response";
+import { ComputadorGetResponse, Computadores } from "../../../models/computador-model-response";
 
 @Injectable({
   providedIn: 'root'
