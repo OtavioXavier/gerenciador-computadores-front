@@ -11,9 +11,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/gerenciador-computadores-front",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -85,6 +85,14 @@
             "styles": [
               "src/styles.css"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/gerenciador-computadores-front",
+            "netlifyToken": "nfp_voD4mbLmYqN946BYpArdPUecHQGJ993y9f88",
+            "siteId": ""
           }
         }
       }
