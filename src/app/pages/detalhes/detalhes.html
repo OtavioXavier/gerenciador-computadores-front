@@ -89,7 +89,7 @@
                 </label>
                 <div class="relative">
                   <input id="nome" type="text" formControlName="nome"
-                    class="block w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                    class="block placeholder:text-gray-500 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
                     [ngClass]="{'border-red-300 focus:ring-red-500 focus:border-red-500': computadorForm.get('nome')?.invalid && computadorForm.get('nome')?.touched}"
                     placeholder="Ex: PC-DEV-001">
 
@@ -107,7 +107,7 @@
                 </label>
                 <div class="relative">
                   <input id="localizacao" type="text" formControlName="localizacao"
-                    class="block w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                    class="block placeholder:text-gray-500 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
                     [ngClass]="{'border-red-300 focus:ring-red-500 focus:border-red-500': computadorForm.get('localizacao')?.invalid && computadorForm.get('localizacao')?.touched}"
                     placeholder="Ex: Sala 101">
 
@@ -148,6 +148,7 @@
             </form>
             }
 
+            <app-leaflet-map />
 
             <!-- Coluna de Ações -->
             <div class="space-y-6">
